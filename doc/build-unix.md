@@ -53,26 +53,14 @@ Licenses of statically linked libraries:
 
 Dependency Build Instructions: Ubuntu & Debian
 ----------------------------------------------
+Essential update:
+
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+
 Build requirements:
 
-	sudo apt-get install build-essential
-	sudo apt-get install libssl-dev
-
-for Ubuntu 12.04:
-
-	sudo apt-get install libboost-all-dev
-
- db4.8 packages are available [here](https://launchpad.net/~bitcoin/+archive/bitcoin).
-
- Ubuntu precise has packages for libdb5.1-dev and libdb5.1++-dev,
- but using these will break binary wallet compatibility, and is not recommended.
-
-for other Ubuntu & Debian:
-
-	sudo apt-get install libdb4.8-dev
-	sudo apt-get install libdb4.8++-dev
-	sudo apt-get install libboost1.37-dev
- (If using Boost 1.37, append -mt to the boost libraries in the makefile)
+	sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev libboost-all-dev libdb5.3-dev libdb5.3++-dev libpq-dev
 
 Optional:
 
@@ -98,6 +86,7 @@ Berkeley DB
 -----------
 You need Berkeley DB 4.8.  If you have to build Berkeley DB yourself:
 
+	cd build_unix
 	../dist/configure --enable-cxx
 	make
 
@@ -110,6 +99,19 @@ If you need to build Boost yourself:
 	./bootstrap.sh
 	./bjam install
 
+Level DB
+--------
+	cd src/
+	rm -rf leveldb
+	cp -r leveldb-lin/ leveldb
+	chmod -R 755 *
+	make clean
+	make
+	sudo cp libleveldb.* /usr/local/lib
+	cd include
+	sudo cp -R leveldb/ /usr/local/include/
+	cd ..
+	make libleveldb.a libmemenv.a
 
 Security
 --------
