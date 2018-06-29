@@ -105,6 +105,7 @@ Level DB
 	rm -rf leveldb
 	cp -r leveldb-lin/ leveldb
 	chmod -R 755 *
+	cd leveldb
 	make clean
 	make
 	sudo cp libleveldb.* /usr/local/lib
