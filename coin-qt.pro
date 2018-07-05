@@ -288,6 +288,7 @@ SOURCES += src/qt/bitcoin.cpp \
     src/qt/walletframe.cpp \
     src/bitcoinrpc.cpp \
     src/rpcdump.cpp \
+    src/rpcmining.cpp \
     src/rpcnet.cpp \
     src/rpcwallet.cpp \
     src/rpcblockchain.cpp \
