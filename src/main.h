@@ -458,7 +458,7 @@ public:
     {
         if (scriptPubKey.size() < 6)
             return "CTxOut(error)";
-        return strprintf("CTxOut(nValue=%"PRI64d".%08"PRI64d", scriptPubKey=%s)", nValue / COIN, nValue % COIN, scriptPubKey.ToString().substr(0,30).c_str());
+        return strprintf("CTxOut(nValue=%" PRI64d ".%08" PRI64d ", scriptPubKey=%s)", nValue / COIN, nValue % COIN, scriptPubKey.ToString().substr(0,30).c_str());
     }
 
     void print() const
@@ -584,7 +584,7 @@ public:
     }
 
     /** Check for standard transaction types
-        @param[in] mapInputs	Map of previous transactions that have outputs we're spending
+        @param[in] mapInputs    Map of previous transactions that have outputs we're spending
         @return True if all inputs (scriptSigs) use only standard transaction forms
     */
     bool AreInputsStandard(CCoinsViewCache& mapInputs) const;
@@ -596,7 +596,7 @@ public:
 
     /** Count ECDSA signature operations in pay-to-script-hash inputs.
 
-        @param[in] mapInputs	Map of previous transactions that have outputs we're spending
+        @param[in] mapInputs    Map of previous transactions that have outputs we're spending
         @return maximum number of sigops required to validate this transaction's inputs
      */
     unsigned int GetP2SHSigOpCount(CCoinsViewCache& mapInputs) const;
@@ -620,8 +620,8 @@ public:
         Note that lightweight clients may not know anything besides the hash of previous transactions,
         so may not be able to calculate this.
 
-        @param[in] mapInputs	Map of previous transactions that have outputs we're spending
-        @return	Sum of value of all inputs (scriptSigs)
+        @param[in] mapInputs    Map of previous transactions that have outputs we're spending
+        @return Sum of value of all inputs (scriptSigs)
      */
     int64 GetValueIn(CCoinsViewCache& mapInputs) const;
 
@@ -654,7 +654,7 @@ void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCach
     std::string ToString() const
     {
         std::string str;
-        str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%"PRIszu", vout.size=%"PRIszu", nLockTime=%u)\n",
+        str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%" PRIszu ", vout.size=%" PRIszu ", nLockTime=%u)\n",
             GetHash().ToString().c_str(),
             nVersion,
             vin.size(),
@@ -1498,7 +1498,7 @@ public:
 
     void print() const
     {
-        printf("CBlock(hash=%s, input=%s, PoW=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%"PRIszu")\n",
+        printf("CBlock(hash=%s, input=%s, PoW=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%" PRIszu ")\n",
             GetHash().ToString().c_str(),
             HexStr(BEGIN(nVersion),BEGIN(nVersion)+80,false).c_str(),
             GetPoWHash().ToString().c_str(),
