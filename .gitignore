@@ -1,7 +1,7 @@
 src/*.exe
-src/litecoin
-src/litecoind
-src/test_litecoin
+src/TosCoin
+src/TosCoind
+src/test_TosCoin
 .*.swp
 *.*~*
 *.bak
@@ -9,13 +9,13 @@ src/test_litecoin
 *.orig
 *.o
 *.patch
-.litecoin
+.TosCoin
 
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-litecoin-qt
-Litecoin-Qt.app
+TosCoin-qt
+TosCoin-Qt.app
 
 # Unit-tests
 Makefile.test
